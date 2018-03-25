@@ -1,0 +1,81 @@
+<ion-view title="Visual Recognition and Sentimental analysis" ng-init="">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-camera" ng-click="upload()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">  <!-- four columns per row  -->
+            <div class="col col-25" ng-if="$index < images.length">
+                <img ng-src="data:image/jpeg;base64,{{images[$index].image}}" width="100%" /> <!-- //make sure if our index exists before creating a column -->
+            </div>
+            <div class="col col-25" ng-if="$index + 1 < images.length">
+                <img ng-src="data:image/jpeg;base64,{{images[$index + 1].image}}" width="100%" />
+            </div>
+            <div class="col col-25" ng-if="$index + 2 < images.length">
+                <img ng-src="data:image/jpeg;base64,{{images[$index + 2].image}}" width="100%" />
+            </div>
+            <div class="col col-25" ng-if="$index + 3 < images.length">
+                <img ng-src="data:image/jpeg;base64,{{images[$index + 3].image}}" width="100%" />
+            </div>
+        </div>
+
+    <div class="body">
+        <div class="body1">
+          <div ng-controller="SecureController">
+
+
+            <div>
+              <h4>Visual Recognition using Clarifai API</h4>
+              <button class="button2" ng-click="generate()">Predict</button>
+            </div>
+
+            <div id="objects" style="font-weight: bold"></div>
+            <h4 class="head">Sentiment analysis using Uclassify API</h4><br>
+            <h4>Enter the text</h4>
+            <input type="text1" id="txt" placeholder="Enter text" ng-model="text" class="come">
+            <button class="btn btn-primary" ng-click="analyzeg()">Analyze</button>
+            <p ng-model="analyzelang">
+            <h4>  Positive:  {{analyzelang.positive | number:2}}%<br> </h4>
+             <h4>Negative:  {{analyzelang.negative | number:2}}% </h4>
+            </p>
+            <h4 class="head">Enter the text to translate</h4>
+            <input type="text1" id="translate1" placeholder="Enter text to translate" ng-model="trans1" class="come">
+
+            <button class="btn btn-primary" ng-click="translate()">Translate</button>
+            <h4>Output : {{output}}</h4>
+            <h4 class="head">Enter the location </h4>
+            <input type="text1" id="weather" placeholder="Enter text to get Temp" ng-model="weather1" class="come">
+            <button class="btn btn-primary" ng-click="weather()">Weather</button>
+            <h4>Temperature : {{temp}}</h4>
+            <h4>Humidity : {{humidity}}</h4>
+            <h4>Pressure : {{pressure}}</h4>
+            <h4>Wind : {{wind}}</h4>
+            <input type="button2" class="button" value="Maps" onclick="location.href ='location.html'"/>
+
+
+
+            <button class="button3" ng-click="logout()">Logout</button>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </ion-content>
+</ion-view>
+<style>
+  input[type=text1]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: white;
+    color: black;
+  }
+
+  .button2{
+    padding: 10px 50px;
+
+  }
+</style>

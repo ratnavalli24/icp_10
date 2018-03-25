@@ -1,0 +1,41 @@
+<ion-view title="ASE LAB-4" class="fb">
+<link href="css/s1.css" rel="stylesheet">
+
+  <ion-content>
+        <div>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input ng-model="username" type="text" placeholder="Username" />
+                </label>
+                <label class="item item-input">
+                    <input ng-model="password" type="password" placeholder="Password" />
+                </label>
+            </div>
+            <div class="padding-left padding-right">
+                <div>
+                    <a class="button0" ng-click="login(username, password)">Login</a><br/><br/>
+                    <a class="button1" ng-click="register(username, password)">Register</a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<style>
+  .button0{
+    padding: 10px 100px;
+    background-color: saddlebrown;
+    border: 0px solid;
+    cursor: pointer;
+    color: beige;
+
+  }
+
+  .button1{
+    padding: 10px 92px;
+    background-color: saddlebrown;
+    border: 0px solid;
+    cursor: pointer;
+    color: beige;
+  }
+</style>
